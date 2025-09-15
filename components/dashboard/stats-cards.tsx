@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 import { useExpenses } from "@/contexts/expense-context"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FiTrendingUp as TrendingUp, FiTrendingDown as TrendingDown, FiDollarSign as DollarSign, FiCalendar as Calendar, FiPieChart as PieChart } from "react-icons/fi"
+import { TrendingUp, TrendingDown, IndianRupee, Calendar, PieChart } from "lucide-react"
 
 export default function StatsCards() {
   const { expenses } = useExpenses()
@@ -60,9 +60,10 @@ export default function StatsCards() {
   }, [expenses])
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
+      maximumFractionDigits: 2,
     }).format(amount)
   }
 
@@ -72,7 +73,7 @@ export default function StatsCards() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Total Expenses</CardTitle>
-          <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <IndianRupee className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{formatCurrency(stats.totalExpenses)}</div>
