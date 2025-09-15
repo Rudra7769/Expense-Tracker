@@ -59,14 +59,14 @@ export default function ExpenseList() {
   }
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount)
+    return `₹${amount.toLocaleString("en-IN", {
+      maximumFractionDigits: 2,
+    })}`
   }
 
+
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
+    return new Date(dateString).toLocaleDateString("en-IN", {
       year: "numeric",
       month: "short",
       day: "numeric",

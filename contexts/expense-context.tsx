@@ -22,6 +22,8 @@ export interface Budget {
 interface ExpenseContextType {
   expenses: Expense[]
   budget: Budget | null
+  income: number
+  setIncome: (income: number) => void
   addExpense: (expense: Omit<Expense, "id" | "userId" | "createdAt">) => void
   updateExpense: (id: string, expense: Partial<Expense>) => void
   deleteExpense: (id: string) => void
@@ -48,6 +50,7 @@ export const EXPENSE_CATEGORIES = [
 export function ExpenseProvider({ children }: { children: ReactNode }) {
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [budget, setBudgetState] = useState<Budget | null>(null)
+  const [income, setIncomeState] = useState<number>(0)
   const [loading, setLoading] = useState(true)
   const { user } = useAuth()
 
@@ -69,6 +72,10 @@ export function ExpenseProvider({ children }: { children: ReactNode }) {
     const allBudgets = JSON.parse(localStorage.getItem("expense-tracker-budgets") || "[]")
     const userBudget = allBudgets.find((b: Budget) => b.userId === user.id)
     setBudgetState(userBudget || null)
+
+    // Load income
+    const allIncomes = JSON.parse(localStorage.getItem("expense-tracker-incomes") || "{}")
+    setIncomeState(allIncomes[user.id] || 0)
 
     setLoading(false)
   }
@@ -126,11 +133,21 @@ export function ExpenseProvider({ children }: { children: ReactNode }) {
     setBudgetState(newBudget)
   }
 
+  const setIncome = (income: number) => {
+    if (!user) return
+    setIncomeState(income)
+    const allIncomes = JSON.parse(localStorage.getItem("expense-tracker-incomes") || "{}")
+    allIncomes[user.id] = income
+    localStorage.setItem("expense-tracker-incomes", JSON.stringify(allIncomes))
+  }
+
   return (
     <ExpenseContext.Provider
       value={{
         expenses,
         budget,
+        income,
+        setIncome,
         addExpense,
         updateExpense,
         deleteExpense,

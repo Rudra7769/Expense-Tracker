@@ -13,6 +13,8 @@ import ExportManager from "./export-manager"
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 
+import IncomeBalanceCard from "./income-balance-card"
+
 export default function Dashboard() {
   const [showExpenseForm, setShowExpenseForm] = useState(false)
   const { user } = useAuth()
@@ -37,6 +39,10 @@ export default function Dashboard() {
 
           {/* Stats Cards */}
           <StatsCards />
+
+
+          {/* Income & Balance Card */}
+          <IncomeBalanceCard />
 
           {/* Budget Manager */}
           <BudgetManager />
