@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import LoginForm from "@/components/auth/login-form"
 import Dashboard from "@/components/dashboard/dashboard"
 import { Homepage } from "@/components/homepage/homepage"
+import ClickSpark from "@/components/ClickSpark";
 
 function AppContent() {
   const { user, loading } = useAuth()
@@ -27,10 +28,12 @@ function AppContent() {
 
 export default function Home() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
-    </ThemeProvider>
+    <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
+      </ThemeProvider>
+    </ClickSpark>
   )
 }

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 
 import IncomeBalanceCard from "./income-balance-card"
+import ClickSpark from "@/components/ClickSpark";
 
 export default function Dashboard() {
   const [showExpenseForm, setShowExpenseForm] = useState(false)
@@ -21,45 +22,47 @@ export default function Dashboard() {
 
   return (
     <ExpenseProvider>
-      <div className="min-h-screen bg-background">
-        <Header />
+      <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+        <div className="min-h-screen bg-background">
+          <Header />
 
-        <main className="container mx-auto px-4 py-6 space-y-6">
-          {/* Welcome Section */}
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">Welcome back, {user?.name}!</h1>
-              <p className="text-muted-foreground mt-1">Here's your financial overview</p>
+          <main className="container mx-auto px-4 py-6 space-y-6">
+            {/* Welcome Section */}
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-foreground">Welcome back, {user?.name}!</h1>
+                <p className="text-muted-foreground mt-1">Here's your financial overview</p>
+              </div>
+              <Button onClick={() => setShowExpenseForm(true)} className="flex items-center gap-2">
+                <Plus className="h-4 w-4" />
+                Add Expense
+              </Button>
             </div>
-            <Button onClick={() => setShowExpenseForm(true)} className="flex items-center gap-2">
-              <Plus className="h-4 w-4" />
-              Add Expense
-            </Button>
-          </div>
 
-          {/* Stats Cards */}
-          <StatsCards />
+            {/* Stats Cards */}
+            <StatsCards />
 
 
-          {/* Income & Balance Card */}
-          <IncomeBalanceCard />
+            {/* Income & Balance Card */}
+            <IncomeBalanceCard />
 
-          {/* Budget Manager */}
-          <BudgetManager />
+            {/* Budget Manager */}
+            <BudgetManager />
 
-          {/* Charts */}
-          <Charts />
+            {/* Charts */}
+            <Charts />
 
-          {/* Export Manager */}
-          <ExportManager />
+            {/* Export Manager */}
+            <ExportManager />
 
-          {/* Expense List */}
-          <ExpenseList />
+            {/* Expense List */}
+            <ExpenseList />
 
-          {/* Expense Form Modal */}
-          {showExpenseForm && <ExpenseForm onClose={() => setShowExpenseForm(false)} />}
-        </main>
-      </div>
+            {/* Expense Form Modal */}
+            {showExpenseForm && <ExpenseForm onClose={() => setShowExpenseForm(false)} />}
+          </main>
+        </div>
+      </ClickSpark>
     </ExpenseProvider>
   )
 }
