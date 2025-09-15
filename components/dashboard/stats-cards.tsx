@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 import { useExpenses } from "@/contexts/expense-context"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TrendingUp, TrendingDown, DollarSign, Calendar, PieChart } from "lucide-react"
+import { FiTrendingUp as TrendingUp, FiTrendingDown as TrendingDown, FiDollarSign as DollarSign, FiCalendar as Calendar, FiPieChart as PieChart } from "react-icons/fi"
 
 export default function StatsCards() {
   const { expenses } = useExpenses()

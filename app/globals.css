@@ -74,6 +74,58 @@
   --sidebar-ring: oklch(0.646 0.222 280);
 }
 
+/* Homepage-only theme overrides */
+.homepage-theme {
+  --background: #222831;
+  --foreground: #EEEEEE;
+  --card: #393E46;
+  --card-foreground: #EEEEEE;
+  --popover: #393E46;
+  --popover-foreground: #EEEEEE;
+  --primary: #FFD369;
+  --primary-foreground: #222831;
+  --secondary: #393E46;
+  --secondary-foreground: #EEEEEE;
+  --muted: #393E46;
+  --muted-foreground: #EEEEEE;
+  --accent: #FFD369;
+  --accent-foreground: #222831;
+  --border: #393E46;
+  --input: #393E46;
+  --ring: #FFD369;
+  --chart-1: #FFD369;
+  --chart-2: #393E46;
+  --chart-3: #EEEEEE;
+  --chart-4: #222831;
+  --chart-5: #8c8c8c;
+}
+
+.dark .homepage-theme {
+  /* Keep the same palette in dark mode for consistency */
+  --background: #222831;
+  --foreground: #EEEEEE;
+  --card: #393E46;
+  --card-foreground: #EEEEEE;
+  --popover: #393E46;
+  --popover-foreground: #EEEEEE;
+  --primary: #FFD369;
+  --primary-foreground: #222831;
+  --secondary: #393E46;
+  --secondary-foreground: #EEEEEE;
+  --muted: #393E46;
+  --muted-foreground: #EEEEEE;
+  --accent: #FFD369;
+  --accent-foreground: #222831;
+  --border: #393E46;
+  --input: #393E46;
+  --ring: #FFD369;
+  --chart-1: #FFD369;
+  --chart-2: #393E46;
+  --chart-3: #EEEEEE;
+  --chart-4: #222831;
+  --chart-5: #8c8c8c;
+}
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

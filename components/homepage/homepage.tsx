@@ -4,7 +4,7 @@ import { FeaturesSection } from "./features-section"
 import { DashboardPreview } from "./dashboard-preview"
 import { BenefitsSection } from "./benefits-section"
 import { Footer } from "./footer"
-import { ModeToggle } from "@/components/mode-toggle"
+import { Navbar } from "./navbar"
 
 interface HomepageProps {
   onGetStarted: () => void
@@ -13,14 +13,11 @@ interface HomepageProps {
 
 export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header with theme toggle */}
-      <header className="fixed top-0 right-0 z-50 p-4">
-        <ModeToggle />
-      </header>
+    <div className="homepage-theme min-h-screen bg-background">
+      <Navbar onSignup={onLogin} />
 
       {/* Main content */}
-      <main>
+      <main className="pt-20">
         <HeroSection onGetStarted={onGetStarted} onLogin={onLogin} />
         <FeaturesSection />
         <DashboardPreview />

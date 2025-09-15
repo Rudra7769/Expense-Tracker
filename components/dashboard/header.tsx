@@ -3,7 +3,7 @@
 import { useAuth } from "@/contexts/auth-context"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
-import { LogOut, DollarSign } from "lucide-react"
+import { FiLogOut as LogOut, FiDollarSign as DollarSign } from "react-icons/fi"
 
 export default function Header() {
   const { user, logout } = useAuth()

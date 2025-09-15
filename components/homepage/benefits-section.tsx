@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle } from "lucide-react"
+import { FiCheckCircle as CheckCircle } from "react-icons/fi"
 import { motion } from "framer-motion"
 
 const benefits = [
@@ -26,7 +26,7 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="faqs" className="py-24 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

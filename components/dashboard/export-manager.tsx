@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
-import { Download, FileText, FileSpreadsheet, File } from "lucide-react"
+import { FiDownload as Download, FiFileText as FileText, FiFile as File } from "react-icons/fi"
+import { LuFileSpreadsheet as FileSpreadsheet } from "react-icons/lu"
 
 export default function ExportManager() {
   const { expenses } = useExpenses()
