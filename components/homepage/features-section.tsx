@@ -1,8 +1,10 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { PlusCircle, Target, BarChart3, Shield } from "lucide-react"
+import { FiPlusCircle as PlusCircle, FiTarget as Target, FiBarChart2 as BarChart3, FiShield as Shield } from "react-icons/fi"
 import { motion } from "framer-motion"
+import LogoLoop from "./LogoLoop"
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si"
 
 const features = [
   {
@@ -31,8 +33,27 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="features" className="py-24 bg-black">
       <div className="container mx-auto px-4">
+        <div className="mb-12">
+          <LogoLoop
+            logos={[
+              { node: <SiReact />, title: "React", href: "https://react.dev" },
+              { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+              { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+              { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+            ]}
+            speed={120}
+            direction="left"
+            logoHeight={48}
+            gap={40}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#ffffff"
+            ariaLabel="Technology partners"
+          />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

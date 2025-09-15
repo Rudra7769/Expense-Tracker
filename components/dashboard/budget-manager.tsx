@@ -10,7 +10,7 @@ import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
-import { Target, AlertTriangle, TrendingUp, Settings } from "lucide-react"
+import { FiTarget as Target, FiAlertTriangle as AlertTriangle, FiTrendingUp as TrendingUp, FiSettings as Settings } from "react-icons/fi"
 
 export default function BudgetManager() {
   const { expenses, budget, setBudget } = useExpenses()

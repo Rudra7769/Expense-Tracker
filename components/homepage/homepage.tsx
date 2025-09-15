@@ -4,6 +4,7 @@ import { FeaturesSection } from "./features-section"
 import { DashboardPreview } from "./dashboard-preview"
 import { BenefitsSection } from "./benefits-section"
 import { Footer } from "./footer"
+import { Navbar } from "./navbar"
 import { ModeToggle } from "@/components/mode-toggle"
 import ClickSpark from "@/components/ClickSpark";
 
@@ -15,13 +16,14 @@ interface HomepageProps {
 export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
   return (
     <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
-      <div className="min-h-screen bg-background">
-        {/* Header with theme toggle */}
-        <header className="fixed top-0 right-0 z-50 p-4">
+      <div className="homepage-theme min-h-screen bg-background">
+        <Navbar onSignup={onLogin} />
+        {/* Additional theme toggle in top-right corner */}
+        <div className="fixed top-4 right-4 z-50">
           <ModeToggle />
-        </header>
+        </div>
         {/* Main content */}
-        <main>
+        <main className="pt-20">
           <HeroSection onGetStarted={onGetStarted} onLogin={onLogin} />
           <FeaturesSection />
           <DashboardPreview />

@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useAuth } from "@/contexts/auth-context"
 import { useToast } from "@/hooks/use-toast"
 import { Eye, EyeOff, IndianRupee } from "lucide-react"
-import ClickSpark from "@/components/ClickSpark";
+import ClickSpark from "@/components/ClickSpark"
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -82,7 +82,9 @@ export default function LoginForm() {
           <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl text-center">Get Started</CardTitle>
-              <CardDescription className="text-center">Sign in to your account or create a new one</CardDescription>
+              <CardDescription className="text-center">
+                Sign in to your account or create a new one
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="login" className="w-full">
@@ -90,6 +92,8 @@ export default function LoginForm() {
                   <TabsTrigger value="login">Login</TabsTrigger>
                   <TabsTrigger value="signup">Sign Up</TabsTrigger>
                 </TabsList>
+
+                {/* Login Tab */}
                 <TabsContent value="login" className="space-y-4">
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-2">
@@ -130,6 +134,8 @@ export default function LoginForm() {
                     </Button>
                   </form>
                 </TabsContent>
+
+                {/* Signup Tab */}
                 <TabsContent value="signup" className="space-y-4">
                   <form onSubmit={handleSignup} className="space-y-4">
                     <div className="space-y-2">

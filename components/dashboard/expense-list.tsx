@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import ExpenseForm from "./expense-form"
-import { Edit, Trash2, Search, Filter, Calendar } from "lucide-react"
+import { FiEdit as Edit, FiTrash2 as Trash2, FiSearch as Search, FiFilter as Filter, FiCalendar as Calendar } from "react-icons/fi"
 import { useToast } from "@/hooks/use-toast"
 
 export default function ExpenseList() {
