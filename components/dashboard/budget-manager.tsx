@@ -64,13 +64,13 @@ export default function BudgetManager() {
     if (budgetData.isOverBudget) {
       toast({
         title: "Budget Exceeded!",
-        description: `You've spent $${budgetData.spent.toFixed(2)} this month, exceeding your budget of $${budgetData.limit.toFixed(2)}.`,
+        description: `You've spent ₹${budgetData.spent.toLocaleString("en-IN", {minimumFractionDigits: 0})} this month, exceeding your budget of ₹${budgetData.limit.toLocaleString("en-IN", {minimumFractionDigits: 0})}.`,
         variant: "destructive",
       })
     } else if (budgetData.isNearLimit) {
       toast({
         title: "Approaching Budget Limit",
-        description: `You've used ${budgetData.percentage.toFixed(0)}% of your monthly budget.`,
+        description: `You've used ${budgetData.percentage.toFixed(0)}% of your monthly budget.`
       })
     }
   }, [budgetData.isOverBudget, budgetData.isNearLimit])
@@ -83,50 +83,51 @@ export default function BudgetManager() {
       setBudgetAmount("")
       toast({
         title: "Budget Updated",
-        description: `Your monthly budget has been set to $${amount.toFixed(2)}.`,
+        description: `Your monthly budget has been set to ₹${amount.toLocaleString("en-IN", {minimumFractionDigits: 0})}.`,
       })
     }
   }
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
+      maximumFractionDigits: 0,
     }).format(amount)
   }
 
   const getProgressColor = () => {
-    if (budgetData.isOverBudget) return "bg-red-500"
-    if (budgetData.isNearLimit) return "bg-yellow-500"
+    if (budgetData.isOverBudget) return "bg-destructive"
+    if (budgetData.isNearLimit) return "bg-yellow-400"
     return "bg-green-500"
   }
 
   return (
-    <Card>
+    <Card className="bg-muted border border-border text-foreground">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
-            <Target className="h-5 w-5" />
+            <Target className="h-5 w-5 text-primary" />
             Monthly Budget
           </CardTitle>
           <Dialog open={showBudgetDialog} onOpenChange={setShowBudgetDialog}>
             <DialogTrigger asChild>
-              <Button variant="outline" size="sm" className="flex items-center gap-2 bg-transparent">
+              <Button variant="outline" size="sm" className="flex items-center gap-2 bg-background">
                 <Settings className="h-4 w-4" />
                 {budgetData.hasbudget ? "Update" : "Set Budget"}
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="sm:max-w-md bg-background">
               <DialogHeader>
                 <DialogTitle>Set Monthly Budget</DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="budget">Monthly Budget Amount ($)</Label>
+                  <Label htmlFor="budget">Monthly Budget Amount (₹)</Label>
                   <Input
                     id="budget"
                     type="number"
-                    step="0.01"
+                    step="1"
                     min="0"
                     placeholder="Enter your monthly budget"
                     value={budgetAmount}

@@ -98,7 +98,7 @@ export default function ExpenseForm({ onClose, editExpense }: ExpenseFormProps) 
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="amount">Amount ($)</Label>
+              <Label htmlFor="amount">Amount (₹)</Label>
               <Input
                 id="amount"
                 type="number"
