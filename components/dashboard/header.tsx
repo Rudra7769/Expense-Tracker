@@ -3,7 +3,7 @@
 import { useAuth } from "@/contexts/auth-context"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
-import { LogOut, DollarSign } from "lucide-react"
+import { LogOut, IndianRupee } from "lucide-react"
 
 export default function Header() {
   const { user, logout } = useAuth()
@@ -13,7 +13,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="bg-primary rounded-lg p-2">
-            <DollarSign className="h-6 w-6 text-primary-foreground" />
+            <IndianRupee className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">ExpenseTracker</h1>

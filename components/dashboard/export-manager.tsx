@@ -174,8 +174,8 @@ export default function ExportManager() {
           <div class="summary">
             <h2>Summary</h2>
             <p><strong>Total Expenses:</strong> ${filteredExpenses.length}</p>
-            <p><strong>Total Amount:</strong> $${totalAmount.toFixed(2)}</p>
-            <p><strong>Average per Transaction:</strong> $${(totalAmount / filteredExpenses.length).toFixed(2)}</p>
+            <p><strong>Total Amount:</strong> ₹${totalAmount.toFixed(2)}</p>
+            <p><strong>Average per Transaction:</strong> ₹${(totalAmount / filteredExpenses.length).toFixed(2)}</p>
           </div>
 
           <h2>Category Breakdown</h2>
@@ -185,7 +185,7 @@ export default function ExportManager() {
                 ([category, amount]) => `
               <div class="category-item">
                 <strong>${category}</strong><br>
-                $${amount.toFixed(2)} (${((amount / totalAmount) * 100).toFixed(1)}%)
+                ₹${amount.toFixed(2)} (${((amount / totalAmount) * 100).toFixed(1)}%)
               </div>
             `,
               )
@@ -210,7 +210,7 @@ export default function ExportManager() {
                   <td>${new Date(expense.date).toLocaleDateString()}</td>
                   <td>${expense.description}</td>
                   <td>${expense.category}</td>
-                  <td>$${expense.amount.toFixed(2)}</td>
+                  <td>₹${expense.amount.toFixed(2)}</td>
                 </tr>
               `,
                 )

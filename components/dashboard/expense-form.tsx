@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
-import { Calendar, DollarSign } from "lucide-react"
+import { Calendar, IndianRupee } from "lucide-react"
 
 interface ExpenseFormProps {
   onClose: () => void
@@ -78,7 +78,7 @@ export default function ExpenseForm({ onClose, editExpense }: ExpenseFormProps) 
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <DollarSign className="h-5 w-5" />
+            <IndianRupee className="h-5 w-5" />
             {editExpense ? "Edit Expense" : "Add New Expense"}
           </DialogTitle>
         </DialogHeader>

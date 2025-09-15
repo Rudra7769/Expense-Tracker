@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useAuth } from "@/contexts/auth-context"
 import { useToast } from "@/hooks/use-toast"
-import { Eye, EyeOff, DollarSign } from "lucide-react"
+import { Eye, EyeOff, IndianRupee } from "lucide-react"
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -71,7 +71,7 @@ export default function LoginForm() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
             <div className="bg-primary rounded-full p-3">
-              <DollarSign className="h-8 w-8 text-primary-foreground" />
+              <IndianRupee className="h-8 w-8 text-primary-foreground" />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-2">ExpenseTracker</h1>
