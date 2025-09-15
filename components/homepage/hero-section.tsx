@@ -1,8 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, TrendingUp } from "lucide-react"
+import { FiArrowRight as ArrowRight, FiTrendingUp as TrendingUp } from "react-icons/fi"
 import { motion } from "framer-motion"
+import "./hero-stars.css"
+import HeroParticles from "./HeroParticles"
+import HeroLaptop from "./HeroLaptop"
 
 interface HeroSectionProps {
   onGetStarted: () => void
@@ -11,11 +14,16 @@ interface HeroSectionProps {
 
 export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/50 to-accent/10 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      <div className="absolute top-20 right-20 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{background:"radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.7) 100%), #0b0b0b"}}>
+      {/* Starfield background */}
+      <div className="hero-sky">
+        <div className="hero-sky__stars" />
+        <div className="hero-sky__stars hero-sky__stars--near" />
+        <div className="hero-sky__twinkle" />
+      </div>
+      <div className="hero-grid" />
+      <div className="hero-horizon" />
+      <HeroParticles />
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div
@@ -28,7 +36,7 @@ export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-8"
+            className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-8 mt-6 md:mt-8"
           >
             <TrendingUp className="w-4 h-4" />
             Take control of your finances today
@@ -64,16 +72,8 @@ export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105"
             >
-              Get Started Free
+              Request a Demo
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              onClick={onLogin}
-              variant="outline"
-              size="lg"
-              className="px-8 py-4 text-lg font-semibold hover:bg-muted transition-all duration-300 bg-transparent"
-            >
-              Login
             </Button>
           </motion.div>
 
@@ -85,6 +85,8 @@ export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
           >
             ✨ No credit card required • 🔒 Your data stays private • 📱 Works on all devices
           </motion.div>
+
+          <HeroLaptop />
         </motion.div>
       </div>
     </section>

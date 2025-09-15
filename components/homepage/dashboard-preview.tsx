@@ -32,7 +32,7 @@ const lineData = [
 
 export function DashboardPreview() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

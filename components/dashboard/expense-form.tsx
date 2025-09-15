@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
-import { Calendar, DollarSign } from "lucide-react"
+import { FiCalendar as Calendar, FiDollarSign as DollarSign } from "react-icons/fi"
 
 interface ExpenseFormProps {
   onClose: () => void
@@ -128,7 +128,7 @@ export default function ExpenseForm({ onClose, editExpense }: ExpenseFormProps) 
 
           <div className="space-y-2">
             <Label htmlFor="category">Category</Label>
-            <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })}>
+            <Select value={formData.category} onValueChange={(value: string) => setFormData({ ...formData, category: value })}>
               <SelectTrigger>
                 <SelectValue placeholder="Select a category" />
               </SelectTrigger>

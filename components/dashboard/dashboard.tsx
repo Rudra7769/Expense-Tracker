@@ -11,7 +11,7 @@ import Charts from "./charts"
 import BudgetManager from "./budget-manager"
 import ExportManager from "./export-manager"
 import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
+import { FiPlus as Plus } from "react-icons/fi"
 
 import IncomeBalanceCard from "./income-balance-card"
 

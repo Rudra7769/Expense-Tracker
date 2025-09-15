@@ -1,11 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { LuGithub as Github, LuTwitter as Twitter, LuLinkedin as Linkedin, LuMail as Mail } from "react-icons/lu"
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer id="contact" className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">

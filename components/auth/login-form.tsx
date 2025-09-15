@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useAuth } from "@/contexts/auth-context"
 import { useToast } from "@/hooks/use-toast"
-import { Eye, EyeOff, DollarSign } from "lucide-react"
+import { FiEye as Eye, FiEyeOff as EyeOff, FiDollarSign as DollarSign } from "react-icons/fi"
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
