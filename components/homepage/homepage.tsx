@@ -20,7 +20,9 @@ export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
       <main className="pt-20">
         <HeroSection onGetStarted={onGetStarted} onLogin={onLogin} />
         <FeaturesSection />
-        <DashboardPreview />
+        <section id="action">
+          <DashboardPreview />
+        </section>
         <BenefitsSection />
       </main>
 

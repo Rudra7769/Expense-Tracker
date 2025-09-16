@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 
 const MAX_PARTICLES = 140
-const SPEED = 0.06
+const SPEED = 0.15
 
 export default function HeroParticles() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -27,8 +27,8 @@ export default function HeroParticles() {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * SPEED,
-          vy: (Math.random() - 0.5) * SPEED,
+          vx: (Math.random() * 0.8 + 0.2) * (Math.random() < 0.5 ? 1 : -1) * SPEED,
+          vy: (Math.random() * 0.8 + 0.2) * (Math.random() < 0.5 ? 1 : -1) * SPEED,
           r: Math.random() * 1.4 + 0.4,
           a: Math.random() * 0.5 + 0.3,
         })

@@ -13,13 +13,13 @@ export default function HeroLaptop() {
         className="relative"
       >
         {/* Perimeter glow attached to laptop (follows tilt/scroll) */}
-        <div className="pointer-events-none absolute -inset-6 rounded-2xl bg-[radial-gradient(closest-side,rgba(255,211,105,.22),rgba(255,211,105,.1),transparent)] blur-2xl" />
+        <div className="pointer-events-none absolute -inset-6 rounded-2xl bg-[radial-gradient(closest-side,rgba(0,101,248,.22),rgba(0,101,248,.1),transparent)] blur-2xl" />
 
 
         {/* Laptop shell */}
-        <div className="relative z-[1] rounded-xl bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 shadow-[0_0_40px_0_rgba(255,211,105,0.18),0_0_120px_10px_rgba(255,211,105,0.12),0_20px_100px_-20px_rgba(0,0,0,0.7)]" style={{ perspective: 1200 }}>
+        <div className="relative z-[1] rounded-xl bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 shadow-[0_0_40px_0_rgba(0,101,248,0.18),0_0_120px_10px_rgba(0,101,248,0.12),0_20px_100px_-20px_rgba(0,0,0,0.7)]" style={{ perspective: 1200 }}>
           {/* Notch/bar */}
-          <div className="absolute left-1/2 top-0 h-1.5 w-24 -translate-x-1/2 rounded-b-2xl bg-[#ffd369]/30" />
+          <div className="absolute left-1/2 top-0 h-1.5 w-24 -translate-x-1/2 rounded-b-2xl bg-[#0065F8]/30" />
           {/* Screen */}
           <motion.div
             initial={{ scale: 0.98 }}
@@ -34,7 +34,7 @@ export default function HeroLaptop() {
                 <div className="col-span-3 rounded-lg bg-white/4 p-4 flex flex-col">
                   <div className="flex items-center gap-2 mb-6">
                     <div className="h-5 w-5 rounded-md bg-white/20" />
-                    <span className="text-sm font-semibold text-white/90">Flike</span>
+                    <span className="text-sm font-semibold text-white/90">Expenzo</span>
                   </div>
                   <div className="space-y-2 text-xs">
                     {["Dashboard","Invoices","Messages","My Wallets","Activity","Analytics"].map((label,i)=> (
@@ -75,7 +75,7 @@ export default function HeroLaptop() {
                     <div className="flex items-center gap-3 mb-3 text-xs">
                       <span className="font-medium">Money Flow</span>
                       <div className="flex items-center gap-3 ml-4">
-                        <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#ffd369] inline-block" />Income</span>
+                        <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#0065F8] inline-block" />Income</span>
                         <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-white/70 inline-block" />Expenses</span>
                       </div>
                       <div className="ml-auto text-[10px] px-2 py-1 rounded bg-white/8">Jan 10 - Jan 16</div>
@@ -89,7 +89,7 @@ export default function HeroLaptop() {
                       </div>
                       {/* two polylines as chart */}
                       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 120 40" preserveAspectRatio="none">
-                        <polyline points="0,25 10,28 20,22 30,30 40,18 50,32 60,24 70,34 80,26 90,28 100,22 110,30 120,20" fill="none" stroke="rgba(255,211,105,0.95)" strokeWidth="1.5" />
+                        <polyline points="0,25 10,28 20,22 30,30 40,18 50,32 60,24 70,34 80,26 90,28 100,22 110,30 120,20" fill="none" stroke="#0065F8" strokeWidth="1.5" />
                         <polyline points="0,30 10,32 20,26 30,34 40,24 50,36 60,28 70,38 80,30 90,32 100,26 110,34 120,26" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" />
                       </svg>
                       {/* moving highlight */}
@@ -105,7 +105,7 @@ export default function HeroLaptop() {
                 {/* Right wallet panel */}
                 <div className="col-span-3 rounded-lg bg-white/4 p-4 flex flex-col">
                   <div className="text-xs text-white/70 mb-2">Wallet</div>
-                  <div className="rounded-lg p-4 mb-3 text-black" style={{ background: "linear-gradient(180deg,#ffd369,#e6b84d)" }}>
+                  <div className="rounded-lg p-4 mb-3 text-black" style={{ background: "linear-gradient(180deg,#0065F8,#0065F)" }}>
                     <div className="text-[10px] mb-6">Overpay.</div>
                     <div className="text-[10px] mb-1">Balance</div>
                     <div className="text-lg font-semibold">$24,098.00</div>
@@ -155,5 +155,3 @@ export default function HeroLaptop() {
     </div>
   )
 }
-
-
