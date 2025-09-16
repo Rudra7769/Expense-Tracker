@@ -83,8 +83,8 @@ export function FeaturesSection() {
                   transformStyle: "preserve-3d",
                 }}
               >
-                <Card className="h-full w-72 group transition-colors duration-300 border-border/50 hover:border-accent/50 bg-white/5 backdrop-blur-sm">
-                  <CardContent className="p-8 text-center">
+                <Card className="w-72 h-80 flex flex-col justify-center group transition-colors duration-300 border-border/50 hover:border-accent/50 bg-white/5 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center flex flex-col justify-center h-full">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 text-accent rounded-2xl mb-6 group-hover:bg-accent/20 transition-colors">
                       <feature.icon className="w-8 h-8" />
                     </div>
