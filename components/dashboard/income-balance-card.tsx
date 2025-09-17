@@ -34,7 +34,7 @@ export default function IncomeBalanceCard() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-base font-large">Income & Balance</CardTitle>
+        <CardTitle className="text-base font-medium">💰 Income & Balance</CardTitle>
         <form
           className="flex gap-2 items-center"
           onSubmit={(e) => {
@@ -63,19 +63,19 @@ export default function IncomeBalanceCard() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
           <div>
             <div className="text-xs text-muted-foreground">Income</div>
-            <div className="text-3xl font-bold">{formatINR(income)}</div>
+            <div className="text-xl font-bold">{formatINR(income)}</div>
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Spent</div>
-            <div className="text-3xl font-bold">{formatINR(totalExpenses)}</div>
+            <div className="text-xl font-bold">{formatINR(totalExpenses)}</div>
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Remaining</div>
-            <div className="text-3xl font-bold">{formatINR(remaining)}</div>
+            <div className="text-xl font-bold">{formatINR(remaining)}</div>
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Daily Avg Spendable</div>
-            <div className="text-3xl font-bold">{formatINR(dailyAvg)}</div>
+            <div className="text-xl font-bold">{formatINR(dailyAvg)}</div>
           </div>
         </div>
       </CardContent>

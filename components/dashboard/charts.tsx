@@ -33,7 +33,7 @@ const COLORS = [
 ]
 
 export default function Charts() {
-  const { expenses } = useExpenses()
+  const { expenses, income } = useExpenses()
 
   const chartData = useMemo(() => {
     // Category breakdown
@@ -85,19 +85,23 @@ export default function Charts() {
         })
         .reduce((sum, expense) => sum + expense.amount, 0)
 
+      // For now, use the same income for each week (assume monthly income split equally)
+      const weeklyIncome = income > 0 ? Math.round(income / 4) : 0
+
       weeklyData.push({
         week: `Week ${4 - i}`,
-        amount: weekExpenses,
+        expenses: weekExpenses,
+        income: weeklyIncome,
       })
     }
 
     return { pieData, monthlyData, weeklyData }
-  }, [expenses])
+  }, [expenses, income])
 
   const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value)
@@ -108,7 +112,11 @@ export default function Charts() {
       return (
         <div className="bg-background border border-border rounded-lg p-3 shadow-lg">
           <p className="font-medium">{label}</p>
-          <p className="text-primary">Amount: {formatCurrency(payload[0].value)}</p>
+          {payload.map((entry: any, idx: number) => (
+            <p key={idx} className="text-primary">
+              {entry.name}: {formatCurrency(entry.value)}
+            </p>
+          ))}
         </div>
       )
     }
@@ -226,7 +234,8 @@ export default function Charts() {
                 <XAxis dataKey="week" />
                 <YAxis tickFormatter={formatCurrency} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="amount" fill="#00C49F" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="income" fill="#0088FE" radius={[4, 4, 0, 0]} name="Income" />
+                <Bar dataKey="expenses" fill="#00C49F" radius={[4, 4, 0, 0]} name="Expenses" />
               </BarChart>
             </ResponsiveContainer>
           </div>
