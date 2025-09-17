@@ -100,7 +100,7 @@ export function DashboardPreview() {
           />
           <Tooltip
             contentStyle={{
-              background: "rgba(0, 0, 0, 0.8)",
+              background: "rgba(17, 3, 3, 0.8)",
               borderColor: "rgba(255, 255, 255, 0.2)",
               borderRadius: "0.5rem",
             }}

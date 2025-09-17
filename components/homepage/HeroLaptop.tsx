@@ -104,8 +104,8 @@ export default function HeroLaptop() {
                 </div>
                 {/* Right wallet panel */}
                 <div className="col-span-3 rounded-lg bg-white/4 p-4 flex flex-col">
-                  <div className="text-xs text-white/70 mb-2">Wallet</div>
-                  <div className="rounded-lg p-4 mb-3 text-black" style={{ background: "linear-gradient(180deg,#0065F8,#0065F)" }}>
+                  <div className="text-xs text-[#0065F8] mb-2">Wallet</div>
+                  <div className="rounded-lg p-4 mb-3 text-white" style={{ background: "linear-gradient(180deg,#0065F8,#0065F)" }}>
                     <div className="text-[10px] mb-6">Overpay.</div>
                     <div className="text-[10px] mb-1">Balance</div>
                     <div className="text-lg font-semibold">$24,098.00</div>
@@ -113,8 +113,8 @@ export default function HeroLaptop() {
                   <div className="mx-auto my-2 h-1 w-10 rounded bg-white/20" />
                   <div className="grid grid-cols-4 gap-2 mb-4 text-[10px] text-center text-white/70">
                     {['Send','Receive','Invoicing','More'].map((t)=> (
-                      <div key={t} className="rounded-md h-12 bg-white/8 flex flex-col items-center justify-center gap-1">
-                        <div className="h-4 w-4 rounded bg-white/20" />
+                      <div key={t} className="rounded-md h-12 bg-[#0065F8]/20 flex flex-col items-center justify-center gap-1">
+                        <div className="h-4 w-4 rounded bg-[#0065F8]/40" />
                         {t}
                       </div>
                     ))}
