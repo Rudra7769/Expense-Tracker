@@ -20,11 +20,6 @@ export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
       <div className="homepage-theme min-h-screen bg-background">
         <Navbar onSignup={onLogin} />
 
-        {/* Floating theme toggle in top-right */}
-        <div className="fixed top-4 right-4 z-50">
-          <ModeToggle />
-        </div>
-
         {/* Main content */}
         <main className="pt-20">
           <HeroSection onGetStarted={onGetStarted} onLogin={onLogin} />
