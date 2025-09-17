@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { FiArrowRight as ArrowRight, FiTrendingUp as TrendingUp } from "react-icons/fi"
-import { motion } from "framer-motion"
+import { FiArrowRight as ArrowRight, FiTrendingUp as TrendingUp } from "react-icons/fi";
+import { motion, useScroll, useTransform } from "framer-motion"
 import "./hero-stars.css"
 import HeroParticles from "./HeroParticles"
 import HeroLaptop from "./HeroLaptop"
+import { useRef } from "react"
 
 interface HeroSectionProps {
   onGetStarted: () => void
@@ -13,8 +14,16 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  })
+
+  const laptopY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{background:"radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.7) 100%), #0b0b0b"}}>
+    <section ref={heroRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{background:"radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.7) 100%), #0b0b0b"}}>
       {/* Starfield background */}
       <div className="hero-sky">
         <div className="hero-sky__stars" />
@@ -86,9 +95,10 @@ export function HeroSection({ onGetStarted, onLogin }: HeroSectionProps) {
             ✨ No credit card required • 🔒 Your data stays private • 📱 Works on all devices
           </motion.div>
 
-          <HeroLaptop />
+          <motion.div style={{ y: laptopY }}>
+            <HeroLaptop />
+          </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+)}

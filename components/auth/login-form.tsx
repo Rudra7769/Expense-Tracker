@@ -52,7 +52,7 @@ export default function LoginForm() {
     if (success) {
       toast({
         title: "Account created!",
-        description: "Welcome to ExpenseTracker.",
+        description: "Welcome to Expenzo.",
       })
     } else {
       toast({
@@ -76,9 +76,11 @@ export default function LoginForm() {
                 <IndianRupee className="h-8 w-8 text-primary-foreground" />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">ExpenseTracker</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Expenzo</h1>
             <p className="text-muted-foreground">Take control of your finances</p>
           </div>
+
+          {/* Auth Card */}
           <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl text-center">Get Started</CardTitle>

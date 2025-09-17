@@ -1,10 +1,9 @@
 "use client"
 
+import { useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { FiPlusCircle as PlusCircle, FiTarget as Target, FiBarChart2 as BarChart3, FiShield as Shield } from "react-icons/fi"
-import { motion } from "framer-motion"
-import LogoLoop from "./LogoLoop"
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si"
+import { motion, useInView } from "framer-motion"
 
 const features = [
   {
@@ -32,28 +31,15 @@ const features = [
 ]
 
 export function FeaturesSection() {
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true, margin: "-200px" })
+  const cardWidth = 288 // w-72
+  const gap = 32 // Equivalent to gap-8
+  const totalCardWidth = cardWidth + gap
+
   return (
     <section id="features" className="py-24 bg-black">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
-          <LogoLoop
-            logos={[
-              { node: <SiReact />, title: "React", href: "https://react.dev" },
-              { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-              { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-              { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-            ]}
-            speed={120}
-            direction="left"
-            logoHeight={48}
-            gap={40}
-            pauseOnHover
-            scaleOnHover
-            fadeOut
-            fadeOutColor="#ffffff"
-            ariaLabel="Technology partners"
-          />
-        </div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,30 +55,46 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-accent/50">
-                <CardContent className="p-8 text-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                    className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 text-accent rounded-2xl mb-6 group-hover:bg-accent/20 transition-colors"
-                  >
-                    <feature.icon className="w-8 h-8" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 text-balance">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-pretty">{feature.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        <div
+          ref={containerRef}
+          className="relative flex h-96 items-center justify-center"
+          style={{ perspective: "1200px" }}
+        >
+          {features.map((feature, index) => {
+            return (
+              <motion.div
+                key={feature.title}
+                className="absolute"
+                initial={{
+                  x: 0,
+                  scale: 0.8,
+                }}
+                animate={
+                  isInView
+                    ? {
+                        x: (index - (features.length - 1) / 2) * totalCardWidth,
+                        scale: 1,
+                      }
+                    : {}
+                }
+                transition={{ type: "spring", stiffness: 100, damping: 20, delay: index * 0.1 }}
+                style={{
+                  zIndex: features.length - index,
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <Card className="h-full w-72 group transition-colors duration-300 border-border/50 hover:border-accent/50 bg-white/5 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 text-accent rounded-2xl mb-6 group-hover:bg-accent/20 transition-colors">
+                      <feature.icon className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4 text-balance">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-pretty">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
