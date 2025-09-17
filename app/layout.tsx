@@ -6,9 +6,7 @@ import './globals.css'
 import ClickSpark from "@/components/ClickSpark";
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Expenzo',
 }
 
 export default function RootLayout({

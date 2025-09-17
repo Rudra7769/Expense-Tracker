@@ -20,7 +20,7 @@ export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
       <div className="homepage-theme min-h-screen bg-background">
         <Navbar onSignup={onLogin} />
 
-        {/* Additional theme toggle in top-right corner */}
+        {/* Floating theme toggle in top-right */}
         <div className="fixed top-4 right-4 z-50">
           <ModeToggle />
         </div>
@@ -29,12 +29,9 @@ export function Homepage({ onGetStarted, onLogin }: HomepageProps) {
         <main className="pt-20">
           <HeroSection onGetStarted={onGetStarted} onLogin={onLogin} />
           <FeaturesSection />
-
-          {/* Section with ID for anchor linking */}
           <section id="action">
             <DashboardPreview />
           </section>
-
           <BenefitsSection />
         </main>
 

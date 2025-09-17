@@ -1,7 +1,19 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, Tooltip } from "recharts"
+import {
+  PieChart,
+  Pie,
+  Cell,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  Tooltip,
+} from "recharts"
 import { motion } from "framer-motion"
 
 const pieData = [
@@ -75,7 +87,11 @@ export function DashboardPreview() {
             isAnimationActive={true}
           >
             {pieData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} className="focus:outline-none" />
+              <Cell
+                key={`cell-${index}`}
+                fill={entry.color}
+                className="focus:outline-none"
+              />
             ))}
           </Pie>
         </PieChart>
@@ -100,13 +116,18 @@ export function DashboardPreview() {
           />
           <Tooltip
             contentStyle={{
-              background: "rgba(17, 3, 3, 0.8)",
+              background: "rgba(0, 0, 0, 0.8)",
               borderColor: "rgba(255, 255, 255, 0.2)",
               borderRadius: "0.5rem",
             }}
             cursor={{ fill: "rgba(255, 255, 255, 0.1)" }}
           />
-          <Bar dataKey="amount" fill="#0065F8" radius={[4, 4, 0, 0]} isAnimationActive={true} />
+          <Bar
+            dataKey="amount"
+            fill="#0065F8"
+            radius={[4, 4, 0, 0]}
+            isAnimationActive={true}
+          />
         </BarChart>
       ),
     },
@@ -163,7 +184,8 @@ export function DashboardPreview() {
             See Your Money in <span className="text-accent">Action</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Get instant insights with beautiful charts and comprehensive analytics
+            Get instant insights with beautiful charts and comprehensive
+            analytics
           </p>
         </motion.div>
 
@@ -187,8 +209,14 @@ export function DashboardPreview() {
                 >
                   <Card className={`${card.bgClass} h-full`}>
                     <CardContent className="p-6">
-                      <div className={`text-2xl font-bold ${card.colorClass}`}>{card.value}</div>
-                      <div className="text-sm text-muted-foreground">{card.title}</div>
+                      <div
+                        className={`text-2xl font-bold ${card.colorClass}`}
+                      >
+                        {card.value}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {card.title}
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>

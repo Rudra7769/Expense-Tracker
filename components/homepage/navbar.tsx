@@ -9,11 +9,9 @@ interface NavbarProps {
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#features", label: "Features" },
-  // { href: "#process", label: "Process" },
   { href: "#action", label: "Action" },
   { href: "#faqs", label: "FAQs" },
   { href: "#contact", label: "Contact" },
-  // { href: "#signup", label: "Signup" },
 ]
 
 export function Navbar({ onSignup }: NavbarProps) {
@@ -52,12 +50,25 @@ export function Navbar({ onSignup }: NavbarProps) {
       }}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between text-white">
-        
         {/* Logo */}
-        <a href="#home" className="pointer-events-auto inline-flex items-center gap-2 text-foreground/90">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2 a 10 10 0 1 0 0.0001 0Z" fill="#0065F8"/>
-            <path fillRule="evenodd" clipRule="evenodd" d="M8 7H16V9H10V11H15V13H10V15H16V17H8V7Z" fill="white"/>
+        <a
+          href="#home"
+          className="pointer-events-auto inline-flex items-center gap-2 text-foreground/90"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 2 a 10 10 0 1 0 0.0001 0Z" fill="#0065F8" />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M8 7H16V9H10V11H15V13H10V15H16V17H8V7Z"
+              fill="white"
+            />
           </svg>
           <span className="font-extrabold tracking-tight">Expenzo</span>
         </a>
@@ -71,22 +82,22 @@ export function Navbar({ onSignup }: NavbarProps) {
                 href={item.href}
                 onClick={(e) => {
                   if (item.href.startsWith("#")) {
-                    e.preventDefault();
-                    setActive(item.href);
-                    const target = document.querySelector(item.href);
+                    e.preventDefault()
+                    setActive(item.href)
+                    const target = document.querySelector(item.href)
                     if (target) {
-                      const offset = 70; // navbar height
-                      const bodyRect = document.body.getBoundingClientRect().top;
-                      const elementRect = target.getBoundingClientRect().top;
-                      const elementPosition = elementRect - bodyRect;
+                      const offset = 70 // navbar height
+                      const bodyRect = document.body.getBoundingClientRect().top
+                      const elementRect = target.getBoundingClientRect().top
+                      const elementPosition = elementRect - bodyRect
                       window.scrollTo({
                         top: elementPosition - offset,
                         behavior: "smooth",
-                      });
+                      })
                     }
                   } else if (item.label === "Signup") {
-                    e.preventDefault();
-                    onSignup();
+                    e.preventDefault()
+                    onSignup()
                   }
                 }}
                 className={
@@ -102,7 +113,7 @@ export function Navbar({ onSignup }: NavbarProps) {
           </div>
         </nav>
 
-        {/* Signup Button (plain, no moon/star) */}
+        {/* Signup Button */}
         <div className="pointer-events-auto">
           <button
             onClick={onSignup}
